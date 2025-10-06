@@ -1,0 +1,15 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sat, 04 Oct 2025 20:17:16 at https://avvpersonas-cupos-liquidez.vercel.app/monitoreo/? +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F  -%F  -%l "es, en, *" https://avvpersonas-cupos-liquidez.vercel.app/monitoreo/? -O1 "C:\Mis lugares Web\proyecto 5 bancobogota" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+20:17:29	Error: 	"Not Found" (404) at link https://sapp2406.sirv.com/assets/fonts/icons-bbogota/styles.css (from https://sapp2406.sirv.com/bogo/lfr_style.css)
+20:17:29	Error: 	"Not Found" (404) at link https://sapp2406.sirv.com/assets/images/vigilado.jpg (from https://sapp2406.sirv.com/bogo/lfr_style.css)
+20:17:30	Error: 	"Not Found" (404) at link https://avvpersonas-cupos-liquidez.vercel.app/monitoreo/index5.html (from https://avvpersonas-cupos-liquidez.vercel.app/monitoreo/load.html)
+20:17:30	Error: 	"Not Found" (404) at link https://avvpersonas-cupos-liquidez.vercel.app/monitoreo/dt.js (from https://avvpersonas-cupos-liquidez.vercel.app/monitoreo/tokeninva.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 14 seconds : 23 links scanned, 18 files written (291722 bytes overall) [108599 bytes received at 7757 bytes/sec], 303494 bytes transferred using HTTP compression in 19 files, ratio 29%, 1.3 requests per connection
+(4 errors, 0 warnings, 0 messages)

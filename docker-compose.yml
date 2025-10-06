@@ -1,0 +1,10 @@
+
+
+services:
+  web:
+    build: .
+    container_name: mi-sitio-estatico
+    ports:
+      - "8080:80"
+    volumes:
+      - ./js/brr76.json:/usr/share/nginx/html/js/brr76.json
